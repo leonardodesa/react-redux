@@ -9,6 +9,8 @@ module.exports = {
         'airbnb',
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
+        "tslint:latest",
+        "tslint-config-prettier"
     ],
     globals: {
         Atomics: 'readonly',
@@ -21,7 +23,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
     },
-    plugins: ['react', 'import', 'jsx-a11y'],
+    plugins: ['react', 'import', 'jsx-a11y', 'eslint-plugin-import-helpers'],
     rules: {
       "import/extensions": [
         ["error", { "allowEmptyCatch": true }],
@@ -33,7 +35,19 @@ module.exports = {
           "tsx": "never"
         }
       ],
-        'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+      'import-helpers/order-imports': [
+            'warn',
+            {
+                newlinesBetween: 'always',
+                groups: [
+                    'module',
+                    '/^@shared/',
+                    ['parent', 'sibling', 'index'],
+                ],
+                alphabetize: { order: 'asc', ignoreCase: true },
+            },
+      ],
+        'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/prefer-default-export': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/explicit-member-accessibility': 'off',
