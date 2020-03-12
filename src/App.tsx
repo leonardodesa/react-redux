@@ -1,10 +1,7 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 
-import RepositoryList from './components/RepositoryList';
-
-import store from './store';
-
-const App = () => <Provider store={store}><RepositoryList /></Provider>;
+const App = () => (
+  <h1>Olá mundo</h1>
+);
 
 export default App;

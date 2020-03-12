@@ -1,7 +1,6 @@
 {
-  "*.ts": [
+  "*.{ts,tsx}": [
     "eslint 'src/**' --fix",
-    "cross-env CI=true yarn test --bail --findRelatedTests",
     "git add"
   ]
 }

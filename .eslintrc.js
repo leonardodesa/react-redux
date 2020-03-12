@@ -36,7 +36,6 @@ module.exports = {
       "tsx": "never",
       "mjs": "never"
     }],
-
     'import-helpers/order-imports': [
       'warn',
       {
