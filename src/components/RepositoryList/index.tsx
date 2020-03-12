@@ -24,7 +24,6 @@ type Props = StateProps & DispatchProps & OwnProps;
 class RepositoryList extends Component<Props> {
   componentDidMount() {
     const { loadRequest } = this.props;
-    console.log(loadRequest);
   }
 
   render() {
