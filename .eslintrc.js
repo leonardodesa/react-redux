@@ -8,9 +8,10 @@ module.exports = {
         'react-app',
         'airbnb',
         'plugin:@typescript-eslint/recommended',
+        'plugin:jsx-a11y/recommended',
         'prettier/@typescript-eslint',
-        "tslint:latest",
-        "tslint-config-prettier"
+        'tslint:latest',
+        'tslint-config-prettier'
     ],
     globals: {
         Atomics: 'readonly',

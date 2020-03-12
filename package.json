@@ -29,12 +29,10 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": [
-      [
+    "*.{jsx,ts,tsx}": [
         "eslint --fix",
         "cross-env CI=true yarn test --bail --findRelatedTests",
         "git add"
-      ]
     ]
   },
   "eslintConfig": {
