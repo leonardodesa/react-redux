@@ -48,7 +48,7 @@ module.exports = {
         alphabetize: { order: 'asc', ignoreCase: true },
       },
     ],
-
+    'no-non-null-assertion': true,
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

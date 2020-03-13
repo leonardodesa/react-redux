@@ -1,5 +1,12 @@
 import React, {
-  useState, useEffect, useMemo,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+  useContext,
+  useImperativeHandle,
+  useReducer,
 } from 'react';
 
 import { github } from './services/api';
@@ -11,20 +18,38 @@ interface User {
 }
 
 const App: React.FC = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [users, setUsers] = useState<[User]>();
 
-  const names = useMemo(() => users?.map((user) => user.name).join(', '), [users]);
+  const names = useMemo(() => users?.map((user) => user.name).join(', ') || '', [users]);
+
+  const greeting = useCallback(
+    () => alert(`hello ${names}`),
+    [names],
+  );
 
   useEffect(() => {
     loadData();
   }, []);
 
   async function loadData() {
-    const response: [User] = await github.get('/users');
-    setUsers(response);
+    const response = await github.get('/users');
+    setUsers(response.data);
   }
 
-  return <h1>Ola</h1>;
+  function focusOnInput() {
+    inputRef.current!.focus();
+  }
+
+  return (
+    <div>
+      {users?.map((user) => user.name)}
+
+      <form action="">
+        <input type="text" ref={inputRef} />
+      </form>
+    </div>
+  );
 };
 
 export default App;
